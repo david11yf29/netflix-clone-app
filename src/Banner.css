@@ -1,0 +1,8 @@
+.banner {
+  height: 448px;
+  position: relative;
+  color: white;
+
+  /* keep aspect ratio */
+  object-fit: contain;
+}
