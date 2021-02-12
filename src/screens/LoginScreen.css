@@ -10,3 +10,19 @@
   object-fit: contain;
   padding-left: 20px;
 }
+
+.loginScreen__button {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+
+  /* 可以讓button變大 */
+  padding: 10px 20px;
+
+  font-size: 1rem;
+  color: #fff;
+  background-color: #e50914;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
