@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./LoginScreen.css";
 
 const Login = () => {
+  const [signIn, setSignIn] = useState(false);
+
   return (
     <div className="loginScreen">
       <div className="loginScreen__background">
@@ -10,7 +12,9 @@ const Login = () => {
           src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"
           alt=""
         />
-        <button className="loginScreen__button">Sign In</button>
+        <button onClick={() => setSignIn(true)} className="loginScreen__button">
+          Sign In
+        </button>
 
         <div className="loginScreen__gradient" />
       </div>
