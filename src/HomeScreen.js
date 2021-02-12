@@ -3,6 +3,8 @@ import "./HomeScreen.css";
 
 import Nav from "./Nav";
 import Banner from "./Banner";
+import Row from "./Row";
+import Requests from "./Requests";
 
 const HomeScreen = () => {
   return (
@@ -10,7 +12,12 @@ const HomeScreen = () => {
       <Nav />
 
       <Banner />
-      {/* Row */}
+
+      <Row
+        title="NETFLIX ORIGINALS"
+        fetchUrl={Requests.fetchNetflixOriginals}
+      />
+      <Row />
     </div>
   );
 };
