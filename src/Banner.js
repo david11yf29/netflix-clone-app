@@ -1,7 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Banner.css";
 
+import axios from "./axios";
+import Requests from "./Requests";
+
 const Banner = () => {
+  const [movie, setMovie] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const request = await axios.get(Requests.fetchNetflixOriginals);
+      // console.log(request.data);
+
+      // 隨機抓取[]裡面有的movie object並且設為movie useState
+      setMovie(
+        request.data.results[
+          Math.floor(Math.random() * request.data.results.length - 1)
+        ]
+      );
+    }
+
+    fetchData();
+  }, []);
+
+  console.log(movie);
+
   const truncate = (string, n) => {
     return string?.length > n ? string.substr(0, n - 1) + " ..." : string;
   };
@@ -11,7 +34,7 @@ const Banner = () => {
       className="banner"
       style={{
         backgroundSize: "cover",
-        backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_flag.svg/1200px-Black_flag.svg.png")`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
         backgroundPosition: "center center",
       }}
     >
@@ -27,7 +50,7 @@ const Banner = () => {
           description.This is a test description.This is a test description.This
           is a test description.This is a test description.This is a test
           description.This is a test description.This is a test description.`,
-            200
+            150
           )}
         </h1>
       </div>
