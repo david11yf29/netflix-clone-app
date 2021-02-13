@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "netflix-clone-app-b22fe"
+    "default": "netflix-clone-yt-4bdfa",
+    "staging": "netflix-clone-yt-4bdfa"
   }
 }
