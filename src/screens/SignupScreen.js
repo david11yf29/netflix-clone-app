@@ -8,6 +8,20 @@ const SignupScreen = () => {
 
   const register = (e) => {
     e.preventDefault();
+
+    console.log(emailRef.current.value, passwordRef.current.value);
+
+    auth
+      .createUserWithEmailAndPassword(
+        emailRef.current.value,
+        passwordRef.current.value
+      )
+      .then((authUser) => {
+        console.log(authUser);
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   };
 
   const signIn = (e) => {
@@ -18,8 +32,8 @@ const SignupScreen = () => {
     <div className="signupScreen">
       <form>
         <h1>Sign In</h1>
-        <input placeholder="Email" type="email" />
-        <input placeholder="Password" type="password" />
+        <input ref={emailRef} placeholder="Email" type="email" />
+        <input ref={passwordRef} placeholder="Password" type="password" />
         <button type="submit" onClick={signIn}>
           Sign In
         </button>
