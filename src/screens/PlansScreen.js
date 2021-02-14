@@ -2,7 +2,7 @@ import React from "react";
 import "./PlansScreen.css";
 
 const PlansScreen = () => {
-  return <div></div>;
+  return <div className="plansScreen"></div>;
 };
 
 export default PlansScreen;
