@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import "./PlansScreen.css";
 
 import db from "../firebase";
+import { selectUser } from "../features/userSlice";
 
 const PlansScreen = () => {
   const [products, setProducts] = useState([]);
+  const user = useSelector(selectUser);
 
   useEffect(() => {
     db.collection("products")
@@ -28,7 +31,9 @@ const PlansScreen = () => {
 
   console.log(products);
 
-  const loadCheckout = async (priceId) => {};
+  const loadCheckout = async (priceId) => {
+    const docRef = db.collection("customers").doc();
+  };
 
   return (
     <div className="plansScreen">
