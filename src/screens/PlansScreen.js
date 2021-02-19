@@ -32,7 +32,13 @@ const PlansScreen = () => {
   console.log(products);
 
   const loadCheckout = async (priceId) => {
-    const docRef = db.collection("customers").doc();
+    const docRef = db
+      .collection("customers")
+      .doc(user.uid)
+      .collection("checkout_sessions")
+      .add({
+        price: priceId,
+      });
   };
 
   return (
